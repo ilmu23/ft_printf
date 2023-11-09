@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 15:55:20 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/09 19:44:42 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/09 20:57:57 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,10 @@ static int	getlen(int n, int *ndigits, int *flags)
 	else if (flags[5] > 0 && flags[2] == 0 && flags[0] == 1
 		&& digits <= *ndigits)
 		digits++;
-	if (flags[0] == 0 && flags[2] > 0 && flags[3] != 0
-		&& digits > *ndigits)
-		*ndigits = digits;
-	else if (flags[0] == 1 && flags[2] > 0 && digits > *ndigits
+	if (flags[0] == 0 && flags[2] > 0 && digits > *ndigits)
+		if (flags[3] != 0 || n > 0)
+			*ndigits = digits;
+	if (flags[0] == 1 && flags[2] > 0 && digits > *ndigits
 		&& flags[5] > 0)
 		*ndigits = digits;
 	if (flags[5] > 0 && digits > *ndigits && flags[2] == 0)
