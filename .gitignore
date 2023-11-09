@@ -2,4 +2,5 @@
 *.o
 *test*
 .bonus
+lib/*.h
 ft_printf.h

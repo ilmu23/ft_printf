@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:26:06 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/03 18:57:34 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/09 19:23:57 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	putleft(unsigned int n, int ndigits, int *flags);
 static int	putright(unsigned int n, int ndigits, int *flags);
-static int	ft_uintlen(unsigned int n);
+static int	getlen(unsigned int n, int *ndigits, int *flags);
 
 int	ft_putu(va_list args, int *flags)
 {
@@ -41,7 +41,7 @@ static int	putleft(unsigned int n, int ndigits, int *flags)
 	int	out;
 
 	out = 0;
-	nlen = ft_uintlen(n);
+	nlen = getlen(n, &ndigits, flags);
 	ret = putpadding(ndigits - nlen, '0', &flags[0], flags);
 	out += ret;
 	if (ret < 0)
@@ -50,7 +50,7 @@ static int	putleft(unsigned int n, int ndigits, int *flags)
 	out += ret;
 	if (ret < 0)
 		return (-1);
-	ret = putpadding(flags[2] - (ndigits + nlen), ' ', &flags[0], flags);
+	ret = putpadding(flags[2] - out, ' ', &flags[0], flags);
 	out += ret;
 	if (ret < 0)
 		return (-1);
@@ -64,19 +64,19 @@ static int	putright(unsigned int n, int ndigits, int *flags)
 	int	out;
 
 	out = 0;
-	ret = 0;
-	nlen = ft_uintlen(n);
-	if (ndigits < nlen)
-		ndigits = nlen;
+	nlen = getlen(n, &ndigits, flags);
 	if (flags[1] == 1)
-		ret = putpadding(flags[2] - nlen, '0', &flags[0], flags);
+		ret = putpadding(flags[2] - ndigits, '0', &flags[0], flags);
 	else
 		ret = putpadding(flags[2] - ndigits, ' ', &flags[0], flags);
 	out += ret;
 	if (ret < 0)
 		return (-1);
-	ret = putpadding(ndigits - nlen, '0', &flags[0], flags);
-	out += ret;
+	if (flags[1] == 0)
+	{
+		ret = putpadding(ndigits - nlen, '0', &flags[0], flags);
+		out += ret;
+	}
 	if (ret < 0)
 		return (-1);
 	ret = ft_putunbr_fd(n, 1);
@@ -85,15 +85,26 @@ static int	putright(unsigned int n, int ndigits, int *flags)
 	return (out + ret);
 }
 
-static int	ft_uintlen(unsigned int n)
+static int	getlen(unsigned int n, int *ndigits, int *flags)
 {
 	int	digits;
 
-	digits = 1;
-	while (n > 9)
-	{
-		n /= 10;
+	digits = ft_uintlen(n);
+	if (flags[1] == 1 && flags[5] > 0 && n == 0)
 		digits++;
-	}
+	if (flags[0] == 0 && flags[5] > 0)
+		digits++;
+	else if (flags[0] == 1 && flags[2] == 0 && flags[5] > 0
+		&& digits <= *ndigits)
+		digits++;
+	if (flags[0] == 0 && flags[2] > 0 && digits > *ndigits)
+		*ndigits = digits;
+	else if (flags[5] > 0 && flags[0] == 1 && digits > *ndigits
+		&& flags[2] > 0)
+		*ndigits = digits;
+	if (flags[5] > 0 && flags[2] == 0 && digits > *ndigits)
+		digits = *ndigits + 1;
+	else if (flags[5] > 0 && digits > *ndigits)
+		*ndigits = digits;
 	return (digits);
 }
