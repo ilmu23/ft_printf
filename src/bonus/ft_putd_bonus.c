@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 15:55:20 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/09 18:58:17 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/09 19:44:42 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,17 @@ static int	putleft(int n, int ndigits, int *flags)
 	out += ret;
 	if (ret < 0)
 		return (-1);
-	ret = ft_putnbr_fd(n, 1);
+	if (flags[3] != 0 || n != 0)
+	{
+		ret = ft_putnbr_fd(n, 1);
+		out += ret;
+	}
 	if (n < 0)
 		n = -n;
-	out += ret;
 	ret = putpadding(flags[2] - out, ' ', &n, flags);
-	out += ret;
 	if (ret < 0)
 		return (-1);
-	return (out);
+	return (out + ret);
 }
 
 static int	putright(int n, int ndigits, int *flags)
@@ -108,7 +110,8 @@ static int	getlen(int n, int *ndigits, int *flags)
 	else if (flags[5] > 0 && flags[2] == 0 && flags[0] == 1
 		&& digits <= *ndigits)
 		digits++;
-	if (flags[0] == 0 && flags[2] > 0 && digits > *ndigits)
+	if (flags[0] == 0 && flags[2] > 0 && flags[3] != 0
+		&& digits > *ndigits)
 		*ndigits = digits;
 	else if (flags[0] == 1 && flags[2] > 0 && digits > *ndigits
 		&& flags[5] > 0)

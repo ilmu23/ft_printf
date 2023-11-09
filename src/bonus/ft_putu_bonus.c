@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:26:06 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/09 19:23:57 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/09 19:51:36 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,17 @@ static int	putleft(unsigned int n, int ndigits, int *flags)
 	out += ret;
 	if (ret < 0)
 		return (-1);
-	ret = ft_putunbr_fd(n, 1);
-	out += ret;
+	if (flags[3] != 0 || n != 0)
+	{
+		ret = ft_putunbr_fd(n, 1);
+		out += ret;
+	}
 	if (ret < 0)
 		return (-1);
 	ret = putpadding(flags[2] - out, ' ', &flags[0], flags);
-	out += ret;
 	if (ret < 0)
 		return (-1);
-	return (out);
+	return (out + ret);
 }
 
 static int	putright(unsigned int n, int ndigits, int *flags)
@@ -77,9 +79,10 @@ static int	putright(unsigned int n, int ndigits, int *flags)
 		ret = putpadding(ndigits - nlen, '0', &flags[0], flags);
 		out += ret;
 	}
-	if (ret < 0)
-		return (-1);
-	ret = ft_putunbr_fd(n, 1);
+	if (ret >= 0)
+		ret = 0;
+	if ((flags[3] != 0 || n != 0) && ret == 0)
+		ret = ft_putunbr_fd(n, 1);
 	if (ret < 0)
 		return (-1);
 	return (out + ret);
@@ -97,7 +100,8 @@ static int	getlen(unsigned int n, int *ndigits, int *flags)
 	else if (flags[0] == 1 && flags[2] == 0 && flags[5] > 0
 		&& digits <= *ndigits)
 		digits++;
-	if (flags[0] == 0 && flags[2] > 0 && digits > *ndigits)
+	if (flags[0] == 0 && flags[2] > 0 && flags[3] != 0
+		&& digits > *ndigits)
 		*ndigits = digits;
 	else if (flags[5] > 0 && flags[0] == 1 && digits > *ndigits
 		&& flags[2] > 0)
