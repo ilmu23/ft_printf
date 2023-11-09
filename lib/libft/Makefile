@@ -6,14 +6,14 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2023/11/01 18:34:30 by ivalimak         ###   ########.fr        #
+#    Updated: 2023/11/08 17:46:58 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= ../libft.a
 
 CC		= cc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -g
 
 SRCS	=	ft_atoi.c \
 			ft_bzero.c \
@@ -33,6 +33,7 @@ SRCS	=	ft_atoi.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c \
 			ft_putunbr_fd.c \
+			ft_putxnbr_fd.c \
 			ft_putstr_fd.c \
 			ft_split.c \
 			ft_strchr.c \

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 15:06:23 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/05 17:58:21 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/08 20:06:50 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,7 @@ static int	getvalue(const char *f, va_list args)
 {
 	if (*f == '*')
 		return (va_arg(args, int));
-	return (ft_atoi(f));
+	if (ft_isdigit(*f) > 0)
+		return (ft_atoi(f));
+	return (0);
 }
