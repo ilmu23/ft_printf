@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:52:26 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/08 19:15:26 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/10 15:25:33 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int		ft_putx(va_list args, int *flags, char format);
 int		ft_putp(va_list args, int *flags);
 
 // len_bonus.c
-int		ft_intlen(int n);
 int		ft_uintlen(unsigned int n);
 int		ft_hexlen(unsigned int n);
 

@@ -6,14 +6,13 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 18:06:35 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/10/24 18:40:05 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:20:27 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static char		*ft_strrev(char *s);
-static size_t	ft_intlen(int n);
 
 char	*ft_itoa(int n)
 {
@@ -59,22 +58,4 @@ static char	*ft_strrev(char *s)
 		s[j--] = tmp;
 	}
 	return (s);
-}
-
-static size_t	ft_intlen(int n)
-{
-	size_t	digits;
-
-	digits = 1;
-	if (n < 0)
-	{
-		n = -n;
-		digits++;
-	}
-	while (n > 9)
-	{
-		n /= 10;
-		digits++;
-	}
-	return (digits);
 }

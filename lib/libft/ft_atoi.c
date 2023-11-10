@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 12:50:28 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/10/27 20:32:13 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:18:30 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static int	ft_isspace(int c);
 int	ft_atoi(const char *str)
 {
 	long	out;
-	long	prev;
 	int		n;
 
 	n = 1;
@@ -30,9 +29,8 @@ int	ft_atoi(const char *str)
 		str++;
 	while (ft_isdigit(*str) != 0)
 	{
-		prev = out;
 		out = out * 10 + (*str - '0');
-		if ((prev > 0 && out < 0) || (prev < 0 && out > 0))
+		if (out < 0)
 		{
 			if (n < 0)
 				return (0);

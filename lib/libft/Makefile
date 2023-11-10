@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2023/11/08 17:46:58 by ivalimak         ###   ########.fr        #
+#    Updated: 2023/11/10 15:23:17 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS	=	ft_atoi.c \
 			ft_isdigit.c \
 			ft_isprint.c \
 			ft_itoa.c \
+			ft_intlen.c \
 			ft_memchr.c \
 			ft_memcmp.c \
 			ft_memcpy.c \
