@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   len_bonus.c                                        :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 15:54:45 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/10 15:25:20 by ivalimak         ###   ########.fr       */
+/*   Created: 2023/11/11 18:22:58 by ivalimak          #+#    #+#             */
+/*   Updated: 2023/11/11 18:42:38 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf_bonus.h"
+#include "libft.h"
 
-int	ft_uintlen(unsigned int n)
+char	*ft_uitoa(unsigned int n)
 {
-	int	digits;
+	size_t	i;
+	char	*out;
 
-	digits = 1;
+	out = ft_calloc(ft_uintlen(n) + 1, sizeof(char));
+	if (!out)
+		return (NULL);
+	i = 0;
 	while (n > 9)
 	{
+		out[i++] = n % 10 + '0';
 		n /= 10;
-		digits++;
 	}
-	return (digits);
-}
-
-int	ft_hexlen(unsigned int n)
-{
-	int	digits;
-
-	digits = 1;
-	while (n > 15)
-	{
-		n /= 16;
-		digits++;
-	}
-	return (digits);
+	out[i] = n + '0';
+	return (ft_strrev(out));
 }

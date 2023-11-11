@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 18:01:59 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/08 17:46:47 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:33:08 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,13 @@
 
 int	ft_putunbr_fd(unsigned int n, int fd)
 {
-	int	ret;
-	int	out;
+	char	*nbr;
+	int		ret;
 
-	out = 0;
-	if (n > 9)
-	{
-		ret = ft_putunbr_fd(n / 10, fd);
-		out += ret;
-		ret = ft_putchar_fd(n % 10 + '0', fd);
-		if (ret < 0 || out < 1)
-			return (-1);
-		return (out + ret);
-	}
-	return (ft_putchar_fd(n + '0', fd));
+	nbr = ft_uitoa(n);
+	if (!nbr)
+		return (-1);
+	ret = ft_putstr_fd(nbr, fd);
+	free(nbr);
+	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:09:20 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/09 20:53:39 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/11 18:47:55 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static int	getlen(unsigned int n, int *ndigits, int *flags)
 {
 	int	digits;
 
-	digits = ft_hexlen(n);
+	digits = ft_hexlen((unsigned long long)n);
 	if (flags[2] > *ndigits && flags[4] > 0)
 		digits += 2;
 	if (flags[2] > *ndigits && flags[4] > 0 && n != 0)

@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/28 13:05:24 by ivalimak          #+#    #+#              #
-#    Updated: 2023/11/08 15:59:06 by ivalimak         ###   ########.fr        #
+#    Updated: 2023/11/11 18:51:06 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,7 @@ BONUSS	=	$(BONUSSD)/ft_printf_bonus.c \
 			$(BONUSSD)/ft_puts_bonus.c \
 			$(BONUSSD)/ft_putx_bonus.c \
 			$(BONUSSD)/ft_putp_bonus.c \
-			$(BONUSSD)/utils_bonus.c \
-			$(BONUSSD)/len_bonus.c
+			$(BONUSSD)/utils_bonus.c
 
 OBJS	=	$(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
 BONUSO	=	$(patsubst $(BONUSSD)/%.c, $(BONUSOD)/%.o, $(BONUSS))

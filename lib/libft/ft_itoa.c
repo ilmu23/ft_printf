@@ -6,13 +6,11 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 18:06:35 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/10 16:20:27 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/11 18:41:53 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char		*ft_strrev(char *s);
 
 char	*ft_itoa(int n)
 {
@@ -41,21 +39,4 @@ char	*ft_itoa(int n)
 	if (neg == 1)
 		out[i] = '-';
 	return (ft_strrev(out));
-}
-
-static char	*ft_strrev(char *s)
-{
-	char	tmp;
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = ft_strlen(s) - 1;
-	while (i < j)
-	{
-		tmp = s[i];
-		s[i++] = s[j];
-		s[j--] = tmp;
-	}
-	return (s);
 }

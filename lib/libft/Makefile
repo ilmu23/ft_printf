@@ -6,7 +6,7 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 15:26:18 by ivalimak          #+#    #+#              #
-#    Updated: 2023/11/10 15:23:17 by ivalimak         ###   ########.fr        #
+#    Updated: 2023/11/11 18:41:38 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,17 +24,19 @@ SRCS	=	ft_atoi.c \
 			ft_isdigit.c \
 			ft_isprint.c \
 			ft_itoa.c \
+			ft_uitoa.c \
 			ft_intlen.c \
+			ft_uintlen.c \
+			ft_memset.c \
 			ft_memchr.c \
 			ft_memcmp.c \
 			ft_memcpy.c \
 			ft_memmove.c \
-			ft_memset.c \
-			ft_putchar_fd.c \
-			ft_putendl_fd.c \
 			ft_putnbr_fd.c \
 			ft_putunbr_fd.c \
 			ft_putxnbr_fd.c \
+			ft_putchar_fd.c \
+			ft_putendl_fd.c \
 			ft_putstr_fd.c \
 			ft_split.c \
 			ft_strchr.c \
@@ -49,6 +51,7 @@ SRCS	=	ft_atoi.c \
 			ft_strnstr.c \
 			ft_strrchr.c \
 			ft_strtrim.c \
+			ft_strrev.c \
 			ft_substr.c \
 			ft_tolower.c \
 			ft_toupper.c

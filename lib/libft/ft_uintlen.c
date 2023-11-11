@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_uintlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 19:11:50 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/11 18:43:38 by ivalimak         ###   ########.fr       */
+/*   Created: 2023/11/11 18:38:09 by ivalimak          #+#    #+#             */
+/*   Updated: 2023/11/11 18:42:56 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
+#include "libft.h"
 
-void	ft_strupper(char *s)
+size_t	ft_uintlen(unsigned int n)
 {
-	while (*s)
-	{
-		*s = ft_toupper(*s);
-		s++;
-	}
-}
-
-int	hexlen(unsigned long long n)
-{
-	int	digits;
+	size_t	digits;
 
 	digits = 1;
-	while (n > 15)
+	while (n > 9)
 	{
-		n /= 16;
+		n /= 10;
 		digits++;
 	}
 	return (digits);

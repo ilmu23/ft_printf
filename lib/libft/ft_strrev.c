@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 19:11:50 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/11 18:43:38 by ivalimak         ###   ########.fr       */
+/*   Created: 2023/11/11 18:31:15 by ivalimak          #+#    #+#             */
+/*   Updated: 2023/11/11 18:43:13 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
+#include "libft.h"
 
-void	ft_strupper(char *s)
+char	*ft_strrev(char *s)
 {
-	while (*s)
-	{
-		*s = ft_toupper(*s);
-		s++;
-	}
-}
+	char	tmp;
+	size_t	i;
+	size_t	j;
 
-int	hexlen(unsigned long long n)
-{
-	int	digits;
-
-	digits = 1;
-	while (n > 15)
+	i = 0;
+	j = ft_strlen(s) - 1;
+	while (i < j)
 	{
-		n /= 16;
-		digits++;
+		tmp = s[i];
+		s[i++] = s[j];
+		s[j--] = tmp;
 	}
-	return (digits);
+	return (s);
 }

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 18:52:59 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/10 16:15:02 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/11 18:47:16 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,25 @@
 
 static int	putprefix(int spaces, int *sign, int *flags);
 
-void	ft_strupper(char *s)
-{
-	while (*s)
-	{
-		*s = ft_toupper(*s);
-		s++;
-	}
-}
-
-char	*ft_strrev(char *s)
-{
-	char	tmp;
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = ft_strlen(s) - 1;
-	while (i < j)
-	{
-		tmp = s[i];
-		s[i++] = s[j];
-		s[j--] = tmp;
-	}
-	return (s);
-}
-
 int	ft_contains(char *s, char c)
 {
 	while (*s)
 		if (*s++ == c)
 			return (1);
 	return (0);
+}
+
+int	ft_hexlen(unsigned long long n)
+{
+	int	digits;
+
+	digits = 1;
+	while (n > 15)
+	{
+		n /= 16;
+		digits++;
+	}
+	return (digits);
 }
 
 int	putpadding(int spaces, char c, int *sign, int *flags)

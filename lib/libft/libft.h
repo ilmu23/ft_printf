@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:47:46 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/10 15:16:22 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/11 18:40:25 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,14 @@ int		ft_putxnbr_fd(unsigned int n, int fd, int upper);
 
 // to
 char	*ft_itoa(int n);
+char	*ft_uitoa(unsigned int n);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *str);
 
 // int
 size_t	ft_intlen(int n);
+size_t	ft_uintlen(unsigned int n);
 
 // str
 size_t	ft_strlen(const char *s);
@@ -61,7 +63,8 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strchr(const char *s, int c);
-char	*ft_strdup(const char *s1);
+char	*ft_strdup(const char *s);
+char	*ft_strrev(char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 // mem

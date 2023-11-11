@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 19:24:03 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/03 19:29:39 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/11 18:49:23 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int	ft_putp(unsigned long long addr)
 
 static char	*ptox(unsigned long long n)
 {
-	const char	hexarr[] = {'0', '1', '2', '3', '4', '5',
-		'6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+	const char	hexarr[] = "0123456789abcdef";
 	size_t		i;
 	char		*tmp;
 	char		*out;
