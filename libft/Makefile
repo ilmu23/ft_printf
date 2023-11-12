@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= ../libft.a
+NAME	= libft.a
 
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror -g
@@ -73,18 +73,17 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo Creating libft...
-	@ar -cqs $(NAME) $(OBJS)
-	@cp libft.h ../libft.h
+	@ar -crs $(NAME) $(OBJS)
 
 bonus: .bonus
 
 .bonus: $(NAME) $(BONUSO) 
 	@echo Creating library with bonuses...
-	@ar -cqs $(NAME) $(BONUSO)
+	@ar -crs $(NAME) $(BONUSO)
 	@touch .bonus
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I. -c $< -o $@
 
 clean:
 	@rm -f $(OBJS)
