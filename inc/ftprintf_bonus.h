@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:52:26 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/11 18:47:19 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/12 15:54:46 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		ft_putp(va_list args, int *flags);
 
 // utils_bonus.c
 int		ft_contains(char *s, char c);
-int		ft_hexlen(unsigned long long n);
+int		ft_hexlen(unsigned long n);
 int		putpadding(int spaces, char c, int *sign, int *flags);
 
 #endif

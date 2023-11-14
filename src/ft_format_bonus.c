@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format.c                                        :+:      :+:    :+:   */
+/*   ft_format_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 15:06:23 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/08 20:06:50 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:05:41 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	ft_putarg(const char **f, va_list args)
 		return (ft_putx(args, flags, **f));
 	if (**f == 'p')
 		return (ft_putp(args, flags));
-	return (-1);
+	*f = *f - 1;
+	return (0);
 }
 
 static char	*parseformat(const char *f, int *flags, va_list args)

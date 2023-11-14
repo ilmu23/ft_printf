@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putp.c                                          :+:      :+:    :+:   */
+/*   ft_putp_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:08:43 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/11 18:48:40 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/12 15:53:40 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static int	putleft(char *s, int ndigits, int *flags);
 static int	putright(char *s, int ndigits, int *flags);
-static char	*ptox(unsigned long long n, int ndigits);
+static char	*ptox(unsigned long n, int ndigits);
 
 int	ft_putp(va_list args, int *flags)
 {
-	unsigned long long	p;
-	char				*s;
-	int					out;
-	int					ndigits;
+	unsigned long	p;
+	char			*s;
+	int				out;
+	int				ndigits;
 
 	if (flags[3] > 0)
 	{
@@ -30,7 +30,7 @@ int	ft_putp(va_list args, int *flags)
 	}
 	else
 		ndigits = 0;
-	p = va_arg(args, unsigned long long);
+	p = va_arg(args, unsigned long);
 	s = ptox(p, ndigits);
 	if (!s)
 		return (-1);
@@ -93,7 +93,7 @@ static int	putright(char *s, int ndigits, int *flags)
 	return (out);
 }
 
-static char	*ptox(unsigned long long n, int ndigits)
+static char	*ptox(unsigned long n, int ndigits)
 {
 	const char	hexarr[] = "0123456789abcdef";
 	size_t		i;

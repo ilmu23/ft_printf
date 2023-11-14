@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:54:11 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/03 19:43:29 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:16:57 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_printf(const char *s, ...)
 		else
 		{
 			s++;
-			ret = ft_printformat(s, args);
+			ret = ft_printformat(&s, args);
 		}
 		out += ret;
 		s++;
@@ -41,11 +41,11 @@ int	ft_printf(const char *s, ...)
 	return (out);
 }
 
-int	ft_printformat(const char *f, va_list args)
+int	ft_printformat(const char **f, va_list args)
 {
-	if (!(*f))
+	if (!(**f))
 		return (0);
-	if (*f == '%')
+	if (**f == '%')
 		return (ft_putchar_fd('%', 1));
 	return (ft_putarg(f, args));
 }

@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 19:09:45 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/11 18:49:47 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/12 15:55:18 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static char	*uitox(unsigned int n)
 	char		*out;
 	int			xlen;
 
-	xlen = hexlen((unsigned long long)n);
+	xlen = hexlen((unsigned long)n);
 	out = ft_calloc(xlen + 1, sizeof(char));
 	if (!out)
 		return (NULL);

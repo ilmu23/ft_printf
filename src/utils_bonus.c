@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 18:52:59 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/11 18:47:16 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/12 15:53:18 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_contains(char *s, char c)
 	return (0);
 }
 
-int	ft_hexlen(unsigned long long n)
+int	ft_hexlen(unsigned long n)
 {
 	int	digits;
 

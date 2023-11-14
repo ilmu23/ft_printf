@@ -6,15 +6,15 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 19:24:03 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/11 18:49:23 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/12 15:54:02 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 
-static char	*ptox(unsigned long long n);
+static char	*ptox(unsigned long n);
 
-int	ft_putp(unsigned long long addr)
+int	ft_putp(unsigned long addr)
 {
 	char	*s;
 	int		out;
@@ -27,7 +27,7 @@ int	ft_putp(unsigned long long addr)
 	return (out);
 }
 
-static char	*ptox(unsigned long long n)
+static char	*ptox(unsigned long n)
 {
 	const char	hexarr[] = "0123456789abcdef";
 	size_t		i;

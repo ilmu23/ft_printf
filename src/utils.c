@@ -6,7 +6,7 @@
 /*   By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 19:11:50 by ivalimak          #+#    #+#             */
-/*   Updated: 2023/11/11 18:43:38 by ivalimak         ###   ########.fr       */
+/*   Updated: 2023/11/12 15:53:02 by ivalimak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_strupper(char *s)
 	}
 }
 
-int	hexlen(unsigned long long n)
+int	hexlen(unsigned long n)
 {
 	int	digits;
 
