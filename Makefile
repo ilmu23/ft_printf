@@ -6,14 +6,14 @@
 #    By: ivalimak <ivalimak@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/28 13:05:24 by ivalimak          #+#    #+#              #
-#    Updated: 2023/11/11 18:51:06 by ivalimak         ###   ########.fr        #
+#    Updated: 2023/11/14 10:16:49 by ivalimak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libftprintf.a
 
 CC		=	cc
-CFLAGS	=	-Wall -Wextra -Werror -g
+CFLAGS	=	-Wall -Wextra -Werror
 
 SRCDIR	=	src
 OBJDIR	=	obj
@@ -21,6 +21,46 @@ LIBDIR	=	libft
 INCLUDE	=	-I $(LIBDIR) -I inc
 
 LIBFT	=	$(LIBDIR)/libft.a
+LFTSRCS	=	$(LIBDIR)/ft_atoi.c \
+			$(LIBDIR)/ft_bzero.c \
+			$(LIBDIR)/ft_calloc.c \
+			$(LIBDIR)/ft_isalnum.c \
+			$(LIBDIR)/ft_isalpha.c \
+			$(LIBDIR)/ft_isascii.c \
+			$(LIBDIR)/ft_isdigit.c \
+			$(LIBDIR)/ft_isprint.c \
+			$(LIBDIR)/ft_itoa.c \
+			$(LIBDIR)/ft_uitoa.c \
+			$(LIBDIR)/ft_intlen.c \
+			$(LIBDIR)/ft_uintlen.c \
+			$(LIBDIR)/ft_memset.c \
+			$(LIBDIR)/ft_memchr.c \
+			$(LIBDIR)/ft_memcmp.c \
+			$(LIBDIR)/ft_memcpy.c \
+			$(LIBDIR)/ft_memmove.c \
+			$(LIBDIR)/ft_putnbr_fd.c \
+			$(LIBDIR)/ft_putunbr_fd.c \
+			$(LIBDIR)/ft_putxnbr_fd.c \
+			$(LIBDIR)/ft_putchar_fd.c \
+			$(LIBDIR)/ft_putendl_fd.c \
+			$(LIBDIR)/ft_putstr_fd.c \
+			$(LIBDIR)/ft_split.c \
+			$(LIBDIR)/ft_strchr.c \
+			$(LIBDIR)/ft_strdup.c \
+			$(LIBDIR)/ft_striteri.c \
+			$(LIBDIR)/ft_strjoin.c \
+			$(LIBDIR)/ft_strlcat.c \
+			$(LIBDIR)/ft_strlcpy.c \
+			$(LIBDIR)/ft_strlen.c \
+			$(LIBDIR)/ft_strmapi.c \
+			$(LIBDIR)/ft_strncmp.c \
+			$(LIBDIR)/ft_strnstr.c \
+			$(LIBDIR)/ft_strrchr.c \
+			$(LIBDIR)/ft_strtrim.c \
+			$(LIBDIR)/ft_strrev.c \
+			$(LIBDIR)/ft_substr.c \
+			$(LIBDIR)/ft_tolower.c \
+			$(LIBDIR)/ft_toupper.c
 
 SRCS	=	$(SRCDIR)/ft_printf.c \
 			$(SRCDIR)/ft_format.c \
@@ -57,7 +97,7 @@ bonus: .bonus
 	@ar -crs $(NAME) $(BOBJS) 
 	@touch .bonus
 
-$(LIBFT):
+$(LIBFT): $(LFTSRCS)
 	@make -C $(LIBDIR) --no-print-directory
 
 $(OBJDIR):
